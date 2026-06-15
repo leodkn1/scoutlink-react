@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nome": "Valorant",
+    "categoria": "FPS",
+    "imagem": "/img/vava.png"
+  },
+  {
+    "id": 2,
+    "nome": "Counter-Strike 2",
+    "categoria": "FPS",
+    "imagem": "/img/cs.png"
+  },
+  {
+    "id": 3,
+    "nome": "League of Legends",
+    "categoria": "MOBA",
+    "imagem": "/img/lol.png"
+  },
+  {
+    "id": 4,
+    "nome": "Fortnite",
+    "categoria": "FPS / Battle Royale",
+    "imagem": "/img/fort.png"
+  }
+]

@@ -8,6 +8,7 @@ import Organizacoes from "./pages/Organizacoes";
 import Jogos from "./pages/Jogos";
 import Sobre from "./pages/Sobre";
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,8 +23,12 @@ function App() {
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+
+      <Footer />
+      
     </BrowserRouter>
   );
 }
 
 export default App;
+

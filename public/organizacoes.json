@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nome": "LOUD",
+    "jogo": "Valorant",
+    "logo": "/img/loud.png"
+  },
+  {
+    "id": 2,
+    "nome": "FURIA",
+    "jogo": "CS2",
+    "logo": "/img/furia.jpg"
+  },
+  {
+    "id": 3,
+    "nome": "MIBR",
+    "jogo": "Rainbow Six",
+    "logo": "/img/mibr.jpg"
+  }
+]

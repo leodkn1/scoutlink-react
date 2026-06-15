@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "Guilherme",
+    "jogo": "Valorant",
+    "rank": "Radiante",
+    "foto": "/img/foto.jpeg"
+  },
+  {
+    "id": 2,
+    "nome": "Leonardo",
+    "jogo": "CS2",
+    "rank": "Global Elite",
+    "foto": "/img/leo.jpg"
+  },
+  {
+    "id": 3,
+    "nome": "Maria",
+    "jogo": "League+of+Legends",
+    "rank": "Desafiante",
+    "foto": "/img/maria.png"
+  }
+]
