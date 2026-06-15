@@ -1,0 +1,107 @@
+/* ==========================
+   NAVBAR PADRÃO SCOUTLINK
+========================== */
+
+.navbar {
+  background: rgba(20, 20, 20, 0.95) !important;
+  backdrop-filter: blur(5px);
+  padding: 10px 25px;
+  min-height: 90px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+.logo-navbar {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Links do menu */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-size: 20px;
+  margin-right: 12px;
+  transition: 0.3s;
+}
+
+/* Hover dos links */
+.navbar-nav .nav-link:hover {
+  color: #db7777 !important;
+}
+
+/* Página ativa */
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  font-weight: bold;
+  border-bottom: 2px solid #9b2020;
+}
+
+/* Botões da navbar */
+.btn-navbar,
+.btn_perfil {
+  background: #9b2020;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+
+.btn-navbar:hover,
+.btn_perfil:hover {
+  background: #db7777;
+  color: #9b2020;
+}
+
+/* Botão menu mobile */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+  .navbar {
+    min-height: auto;
+    padding: 10px 15px;
+  }
+
+  .logo-navbar {
+    height: 60px;
+  }
+
+  .navbar-nav {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 18px;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .btn-navbar,
+  .btn_perfil {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.navbar, .navbar * {
+  font-family: "Fredoka One", cursive !important;
+}
+
+.navbar {
+  padding: 10px 25px !important;
+}
+
+.navbar {
+  all: unset;
+}
