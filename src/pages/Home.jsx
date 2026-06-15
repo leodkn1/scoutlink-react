@@ -1,77 +1,93 @@
 import "../styles/home.css";
+import { useState } from "react";
 
 function Home() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = async () => {
+    const res = await fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+  };
+
   return (
-    <div>
+    <div className="home">
 
       <div className="home-topo">
         <p className="frase">
           Conectando jogadores ao cenário profissional de eSports.
         </p>
 
-        <button className="btn-cadastrar">
-          Cadastrar
-        </button>
+        <div className="cadastro-box">
+          <input
+            className="input"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            className="input"
+            placeholder="Senha"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button className="btn-cadastrar" onClick={handleRegister}>
+            Cadastrar
+          </button>
+        </div>
       </div>
 
-      <div className="banner ">
+      <div className="banner">
         <h1>Vire um profissional</h1>
       </div>
 
       <div className="container-home">
 
-        <div className="perfil-card text-light">
-          <img
-            src="/img/foto.jpeg"
-            alt="Jogador"
-          />
+        <div className="perfil-card">
+          <img src="/img/foto.jpeg" alt="Jogador" />
 
           <h3>GUILHERME</h3>
-
           <p>Valorant</p>
 
           <button>Ver Mais</button>
         </div>
 
         <div className="video-card">
-          <video width="100%" height="350" controls>
-         <source src="/video/valorantvideo.mp4" type="video/mp4" />
-          Seu navegador não suporta vídeo.
-      </video>
+          <video controls>
+            <source src="/video/valorantvideo.mp4" type="video/mp4" />
+          </video>
         </div>
 
       </div>
 
-      <h2 className="titulo-org">
-        ORGANIZAÇÕES EM DESTAQUE
-      </h2>
+      <h2 className="titulo-org">ORGANIZAÇÕES EM DESTAQUE</h2>
 
       <div className="organizacoes">
-
         <div className="org-card">
-          <img
-            src="/img/loud.png"
-            alt="Jogador"
-          />
+          <img src="/img/loud.png" alt="LOUD" />
           <h3>LOUD</h3>
         </div>
 
         <div className="org-card">
-          <img
-            src="/img/furia.jpg"
-            alt="Jogador"
-          />
+          <img src="/img/furia.jpg" alt="FURIA" />
           <h3>FURIA</h3>
         </div>
 
         <div className="org-card">
-          <img
-            src="/img/mibr.jpg"
-            alt="Jogador"
-          />
+          <img src="/img/mibr.jpg" alt="MIBR" />
           <h3>MIBR</h3>
         </div>
-
       </div>
 
     </div>
