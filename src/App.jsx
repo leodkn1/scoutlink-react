@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -11,6 +12,13 @@ import Login from "./pages/Login";
 import Footer from "./components/Footer";
 
 function App() {
+
+  useEffect(() => {
+    fetch("http://localhost:3000")
+      .then(res => res.text())
+      .then(data => console.log(data));
+  }, []);
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -25,10 +33,8 @@ function App() {
       </Routes>
 
       <Footer />
-      
     </BrowserRouter>
   );
 }
 
 export default App;
-
