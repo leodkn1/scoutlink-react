@@ -14,15 +14,15 @@ function Home() {
         </button>
       </div>
 
-      <div className="banner">
+      <div className="banner ">
         <h1>Vire um profissional</h1>
       </div>
 
       <div className="container-home">
 
-        <div className="perfil-card">
+        <div className="perfil-card text-light">
           <img
-            src="../img/foto.jpg"
+            src="/img/foto.jpeg"
             alt="Jogador"
           />
 
@@ -34,12 +34,10 @@ function Home() {
         </div>
 
         <div className="video-card">
-          <iframe
-            width="100%"
-            height="350"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Vídeo"
-          ></iframe>
+          <video width="100%" height="350" controls>
+         <source src="/video/valorantvideo.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+      </video>
         </div>
 
       </div>
@@ -51,14 +49,26 @@ function Home() {
       <div className="organizacoes">
 
         <div className="org-card">
+          <img
+            src="/img/loud.png"
+            alt="Jogador"
+          />
           <h3>LOUD</h3>
         </div>
 
         <div className="org-card">
+          <img
+            src="/img/furia.jpg"
+            alt="Jogador"
+          />
           <h3>FURIA</h3>
         </div>
 
         <div className="org-card">
+          <img
+            src="/img/mibr.jpg"
+            alt="Jogador"
+          />
           <h3>MIBR</h3>
         </div>
 

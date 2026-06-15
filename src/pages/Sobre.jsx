@@ -1,6 +1,6 @@
 function Sobre() {
   return (
-    <div className="container mt-5 text-light">
+    <div className="container mt-5 text-black">
 
       <h1 className="text-center mb-4">
         Sobre o ScoutLink
