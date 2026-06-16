@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
 }
 
-/* TOPO */
+
 
 .home-topo {
   text-align: center;
@@ -24,7 +24,7 @@ body {
   margin: 0 auto;
 }
 
-/* CADASTRO */
+
 
 .cadastro-box {
   margin-top: 30px;
@@ -59,7 +59,7 @@ body {
   transform: scale(1.05);
 }
 
-/* BANNER */
+
 
 .banner {
   margin: 40px auto;
@@ -76,7 +76,7 @@ body {
   font-size: 4rem;
 }
 
-/* CONTEÚDO */
+
 
 .container-home {
   width: 90%;
@@ -87,7 +87,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* CARD JOGADOR */
+
 
 .perfil-card {
   background: #1a1a1a;
@@ -121,7 +121,6 @@ body {
   cursor: pointer;
 }
 
-/* VIDEO */
 
 .video-card {
   width: 650px;
@@ -132,7 +131,7 @@ body {
   border-radius: 20px;
 }
 
-/* ORGS */
+
 
 .titulo-org {
   text-align: center;
@@ -173,7 +172,7 @@ body {
   margin-top: 15px;
 }
 
-/* RESPONSIVO */
+
 
 @media (max-width: 768px) {
   .frase {
