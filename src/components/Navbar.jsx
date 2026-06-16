@@ -1,42 +1,63 @@
 import { Link } from "react-router-dom";
+import "../styles/navbar.css";
 
 function Navbar() {
   return (
-    <nav className="bg-zinc-900 border-b-2 border-red-800 px-4 py-3">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container-fluid">
 
-        <Link
-          to="/"
-          className="text-white text-3xl font-bold"
-        >
+        <Link className="navbar-brand text-white fw-bold" to="/">
           ScoutLink
         </Link>
 
-        <div className="flex gap-6 items-center">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuNavbar"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-          <Link to="/" className="text-white hover:text-red-500">
-            Início
-          </Link>
+        <div className="collapse navbar-collapse" id="menuNavbar">
 
-          <Link to="/talentos" className="text-white hover:text-red-500">
-            Talentos
-          </Link>
+          <ul className="navbar-nav ms-auto">
 
-          <Link to="/organizacoes" className="text-white hover:text-red-500">
-            Organizações
-          </Link>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Início
+              </Link>
+            </li>
 
-          <Link to="/jogos" className="text-white hover:text-red-500">
-            Jogos
-          </Link>
+            <li className="nav-item">
+              <Link className="nav-link" to="/talentos">
+                Talentos
+              </Link>
+            </li>
 
-          <Link to="/sobre" className="text-white hover:text-red-500">
-            Sobre
-          </Link>
+            <li className="nav-item">
+              <Link className="nav-link" to="/organizacoes">
+                Organizações
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/jogos">
+                Jogos
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/sobre">
+                Sobre
+              </Link>
+            </li>
+
+          </ul>
 
           <Link
+            className="btn_perfil ms-lg-3 mt-3 mt-lg-0"
             to="/login"
-            className="bg-red-700 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
           >
             Login
           </Link>
