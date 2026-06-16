@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-=======
-/* ==========================
-   NAVBAR SCOUTLINK
-========================== */
 
->>>>>>> 658dab067d0eb00878ed39a530646d2b1ff0a4d5
 .navbar {
   background: #09090b !important;
   border-bottom: 2px solid #991b1b;
@@ -14,7 +8,6 @@
   font-family: "Fredoka One", cursive !important;
 }
 
-<<<<<<< HEAD
 .logo-navbar {
   height: 80px;
   width: auto;
@@ -22,9 +15,6 @@
   display: block;
 }
 
-=======
-/* Links */
->>>>>>> 658dab067d0eb00878ed39a530646d2b1ff0a4d5
 .navbar-nav .nav-link {
   color: #ffffff !important;
   font-size: 20px;
@@ -36,16 +26,12 @@
   color: #ef4444 !important;
 }
 
-<<<<<<< HEAD
 .navbar-nav .nav-link.active {
   color: #ffffff !important;
   font-weight: bold;
   border-bottom: 2px solid #ef4444;
 }
 
-=======
-/* Botões */
->>>>>>> 658dab067d0eb00878ed39a530646d2b1ff0a4d5
 .btn-navbar,
 .btn_perfil {
   background: #b91c1c;
@@ -64,10 +50,6 @@
   color: white;
 }
 
-<<<<<<< HEAD
-=======
-/* Mobile */
->>>>>>> 658dab067d0eb00878ed39a530646d2b1ff0a4d5
 .navbar-toggler {
   border: none;
 }
@@ -98,7 +80,6 @@
     width: 100%;
     margin-top: 10px;
   }
-<<<<<<< HEAD
 }
 
 .navbar-collapse {
@@ -115,6 +96,4 @@
 .navbar,
 .navbar * {
   font-family: "Fredoka One", cursive !important;
-=======
->>>>>>> 658dab067d0eb00878ed39a530646d2b1ff0a4d5
 }
