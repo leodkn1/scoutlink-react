@@ -15,38 +15,34 @@ function Jogos() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="bg-zinc-950 min-h-screen text-white p-8">
 
-      <h1 className="text-center mb-5">
+      <h1 className="text-center text-5xl font-bold text-red-500 mb-10">
         Jogos
       </h1>
 
-      <div className="row">
+      <div className="flex flex-wrap justify-center gap-8">
 
         {jogos.map((jogo) => (
           <div
             key={jogo.id}
-            className="col-md-3 mb-4"
+            className="bg-zinc-900 rounded-xl p-5 w-72 shadow-lg hover:scale-105 transition"
           >
-            <div className="card bg-dark text-light p-3 text-center">
 
-              <img
-                src={jogo.imagem}
-                alt={jogo.nome}
-                className="img-fluid mb-3"
-                style={{
-                  height: "200px",
-                  objectFit: "contain"
-                }}
-              />
+            <img
+              src={jogo.imagem}
+              alt={jogo.nome}
+              className="w-full h-48 object-contain mb-4"
+            />
 
-              <h3>{jogo.nome}</h3>
+            <h3 className="text-2xl font-bold text-center mb-2">
+              {jogo.nome}
+            </h3>
 
-              <p>
-                <strong>Categoria:</strong> {jogo.categoria}
-              </p>
+            <p className="text-center text-red-400">
+              {jogo.categoria}
+            </p>
 
-            </div>
           </div>
         ))}
 

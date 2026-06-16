@@ -15,36 +15,38 @@ function Talentos() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="bg-zinc-950 min-h-screen text-white p-8">
 
-      <h1 className="text-center mb-4">
+      <h1 className="text-center text-5xl font-bold text-red-500 mb-10">
         Talentos
       </h1>
 
-      <div className="row">
+      <div className="flex flex-wrap justify-center gap-8">
 
         {talentos.map((talento) => (
           <div
             key={talento.id}
-            className="col-md-4 mb-4"
+            className="bg-zinc-900 rounded-xl p-5 w-72 shadow-lg hover:scale-105 transition"
           >
-            <div className="card bg-dark text-light p-3">
-              <img
-                src={talento.foto}
-                alt={talento.nome}
-                className="img-fluid mb-3 rounded"
-              />
-              <h3>{talento.nome}</h3>
 
-              <p>
-                <strong>Jogo:</strong> {talento.jogo}
-              </p>
+            <img
+              src={talento.foto}
+              alt={talento.nome}
+              className="w-full h-64 object-cover rounded-lg mb-4"
+            />
 
-              <p>
-                <strong>Rank:</strong> {talento.rank}
-              </p>
+            <h3 className="text-2xl font-bold text-center mb-2">
+              {talento.nome}
+            </h3>
 
-            </div>
+            <p className="text-center text-red-400 mb-1">
+              {talento.jogo}
+            </p>
+
+            <p className="text-center">
+              Rank: {talento.rank}
+            </p>
+
           </div>
         ))}
 
