@@ -2,19 +2,31 @@
   {
     "id": 1,
     "nome": "LOUD",
-    "jogo": "Valorant",
-    "logo": "/img/loud.png"
+    "logo": "/img/LOUD.png",
+    "descricao": "Organização brasileira presente em diferentes modalidades do cenário competitivo.",
+    "jogos": [
+      "Valorant",
+      "Fornite"
+    ]
   },
   {
     "id": 2,
     "nome": "FURIA",
-    "jogo": "CS2",
-    "logo": "/img/furia.jpg"
+    "logo": "/img/FURIA.png",
+    "descricao": "Organização brasileira conhecida por sua atuação no cenário competitivo internacional.",
+    "jogos": [
+      "CS2",
+      "Valorant"
+    ]
   },
   {
     "id": 3,
     "nome": "MIBR",
-    "jogo": "Rainbow Six",
-    "logo": "/img/mibr.jpg"
+    "logo": "/img/MIBR.jpg",
+    "descricao": "Organização tradicional do cenário brasileiro de eSports.",
+    "jogos": [
+      "CS2",
+      "Rocket League"
+    ]
   }
 ]

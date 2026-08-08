@@ -1,125 +1,162 @@
-import { useState } from "react";
 import "../styles/home.css";
 
 function Home() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleRegister = async () => {
-    try {
-      const res = await fetch("http://localhost:3000/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await res.json();
-      alert(data.message);
-    } catch (error) {
-      alert("Erro ao conectar com o servidor.");
-    }
-  };
-
   return (
-    
-    <div className="home">
+    <main className="home">
 
-      <div className="home-topo">
-        <p className="frase">
-          Conectando jogadores ao cenário profissional de eSports.
+      {/* HERO */}
+      <section className="hero">
+
+        <div className="hero-content">
+
+          <span className="hero-tag">
+            SCOUTLINK • ESPORTS
+          </span>
+
+          <h1>
+            Conectando talentos aos
+            <strong> grandes palcos do eSports.</strong>
+          </h1>
+
+          <p>
+            Encontre jogadores, organizações e oportunidades
+            para transformar sua paixão por games em carreira.
+          </p>
+
+          <div className="hero-buttons">
+
+            <button className="btn-primary">
+              Encontrar talentos
+            </button>
+
+            <button className="btn-secondary">
+              Sou jogador
+            </button>
+
+          </div>
+
+        </div>
+
+        <div className="hero-logo">
+
+          <img
+            src="/img/SCOUTLINK.png"
+            alt="ScoutLink"
+          />
+
+        </div>
+
+      </section>
+
+
+      {/* SOBRE A PLATAFORMA */}
+      <section className="home-intro">
+
+        <span>COMO FUNCIONA</span>
+
+        <h2>
+          Tudo o que você precisa para entrar no cenário competitivo.
+        </h2>
+
+        <p>
+          O ScoutLink aproxima jogadores, talentos e organizações,
+          facilitando a descoberta de novas oportunidades no mundo
+          dos eSports.
         </p>
 
-        <div className="cadastro-box">
-          <input
-            className="input"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+      </section>
 
-          <input
-            className="input"
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
 
-          <button
-            className="btn-cadastrar"
-            onClick={handleRegister}
-          >
-            Cadastrar
+      {/* CARDS */}
+      <section className="home-cards">
+
+        <article className="home-card">
+
+          <div className="card-icon">
+            🎮
+          </div>
+
+          <h3>
+            Encontre talentos
+          </h3>
+
+          <p>
+            Descubra jogadores de diferentes jogos,
+            ranks e estilos de gameplay.
+          </p>
+
+          <button>
+            Ver talentos →
           </button>
-        </div>
-      </div>
 
-      <div className="banner">
-        <h1>Vire um profissional</h1>
-      </div>
+        </article>
 
-      <div className="container-home">
 
-        <div className="perfil-card">
-          <img
-            src="/img/foto.jpeg"
-            alt="Guilherme"
-          />
+        <article className="home-card">
 
-          <h3>GUILHERME</h3>
+          <div className="card-icon">
+            🏆
+          </div>
 
-          <p>Valorant</p>
+          <h3>
+            Conheça organizações
+          </h3>
 
-          <button>Ver Mais</button>
-        </div>
+          <p>
+            Explore organizações e equipes que fazem
+            parte do cenário competitivo.
+          </p>
 
-        <div className="video-card">
-          <video controls>
-            <source
-              src="/video/valorantvideo.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
+          <button>
+            Ver organizações →
+          </button>
 
-      </div>
+        </article>
 
-      <h2 className="titulo-org">
-        ORGANIZAÇÕES EM DESTAQUE
-      </h2>
 
-      <div className="organizacoes">
+        <article className="home-card">
 
-        <div className="org-card">
-          <img
-            src="/img/loud.png"
-            alt="LOUD"
-          />
-          <h3>LOUD</h3>
-        </div>
+          <div className="card-icon">
+            ⚡
+          </div>
 
-        <div className="org-card">
-          <img
-            src="/img/furia.jpg"
-            alt="FURIA"
-          />
-          <h3>FURIA</h3>
-        </div>
+          <h3>
+            Explore oportunidades
+          </h3>
 
-        <div className="org-card">
-          <img
-            src="/img/mibr.jpg"
-            alt="MIBR"
-          />
-          <h3>MIBR</h3>
-        </div>
+          <p>
+            Encontre novas possibilidades para evoluir
+            e construir sua carreira nos eSports.
+          </p>
 
-      </div>
+          <button>
+            Explorar →
+          </button>
 
-    </div>
+        </article>
+
+      </section>
+
+
+      {/* CTA */}
+      <section className="home-cta">
+
+        <h2>
+          Pronto para dar o próximo passo?
+        </h2>
+
+        <p>
+          Entre para o ScoutLink e encontre seu espaço
+          no cenário competitivo.
+        </p>
+
+        <button>
+          Começar agora →
+        </button>
+
+      </section>
+
+    </main>
   );
 }
 

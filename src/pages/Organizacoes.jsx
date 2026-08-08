@@ -1,55 +1,85 @@
 import { useEffect, useState } from "react";
+import "../styles/organizacao.css";
 
 function Organizacoes() {
-  const [orgs, setOrgs] = useState([]);
+  const [organizacoes, setOrganizacoes] = useState([]);
 
   useEffect(() => {
     async function carregarOrganizacoes() {
-      const resposta = await fetch("/organizacoes.json");
-      const dados = await resposta.json();
-
-      setOrgs(dados);
+      try {
+        const resposta = await fetch("/organizacoes.json");
+        const dados = await resposta.json();
+        setOrganizacoes(dados);
+      } catch (erro) {
+        console.error("Erro ao carregar organizações:", erro);
+      }
     }
 
     carregarOrganizacoes();
   }, []);
 
   return (
-    <div className="container mt-5">
+    <main className="organizacoes-page">
 
-      <h1 className="text-center mb-5">
-        Organizações
-      </h1>
+      <section className="organizacoes-header">
+        <h1>Organizações em Destaque</h1>
 
-      <div className="row">
+        <p>
+          Conheça organizações e equipes que fazem parte do cenário
+          competitivo de eSports.
+        </p>
+      </section>
 
-        {orgs.map((org) => (
-          <div
-            key={org.id}
-            className="col-md-4 mb-4"
+      <section className="organizacoes-grid">
+
+        {organizacoes.map((organizacao) => (
+          <article
+            className="organizacao-card"
+            key={organizacao.id}
           >
-            <div className="card bg-dark text-light p-3 text-center">
+
+            {/* LOGO */}
+            <div className="organizacao-logo-container">
 
               <img
-                src={org.logo}
-                alt={org.nome}
-                className="img-fluid mb-3"
-                style={{ height: "200px", objectFit: "contain" }}
+                src={organizacao.logo}
+                alt={`Logo ${organizacao.nome}`}
+                className="organizacao-logo"
               />
 
-              <h3>{org.nome}</h3>
+            </div>
 
-              <p>
-                <strong>Jogo:</strong> {org.jogo}
+            {/* CONTEÚDO */}
+            <div className="organizacao-info">
+
+              <span className="organizacao-label">
+                ORGANIZAÇÃO
+              </span>
+
+              <h2>{organizacao.nome}</h2>
+
+              <p className="organizacao-descricao">
+                {organizacao.descricao}
               </p>
 
+              {/* JOGOS */}
+              <div className="organizacao-jogos">
+
+                {organizacao.jogos.map((jogo, index) => (
+                  <span key={index}>
+                    {jogo}
+                  </span>
+                ))}
+
+              </div>
             </div>
-          </div>
+
+          </article>
         ))}
 
-      </div>
+      </section>
 
-    </div>
+    </main>
   );
 }
 

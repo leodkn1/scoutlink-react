@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "nome": "Guilherme",
+      "rm": "SEU RM",
+      "foto": "/img/guilherme.jpeg"
+    },
+    {
+      "id": 2,
+      "nome": "Isabelle",
+      "rm": "SEU RM",
+      "foto": "/img/belle.png"
+    },
+    {
+      "id": 3,
+      "nome": "Leonardo",
+      "rm": "SEU RM",
+      "foto": "/img/leo.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Maria",
+      "rm": "SEU RM",
+      "foto": "/img/maria.png"
+    },
+    {
+      "id": 5,
+      "nome": "Vinicius",
+      "rm": "SEU RM",
+      "foto": "/img/vinicius.png"
+    }
+  ]

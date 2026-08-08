@@ -1,54 +1,83 @@
 import { useEffect, useState } from "react";
+import "../styles/jogos.css";
 
 function Jogos() {
   const [jogos, setJogos] = useState([]);
 
   useEffect(() => {
     async function carregarJogos() {
-      const resposta = await fetch("/jogos.json");
-      const dados = await resposta.json();
-
-      setJogos(dados);
+      try {
+        const resposta = await fetch("/jogos.json");
+        const dados = await resposta.json();
+        setJogos(dados);
+      } catch (erro) {
+        console.error("Erro ao carregar jogos:", erro);
+      }
     }
 
     carregarJogos();
   }, []);
 
   return (
-    <div className="bg-zinc-950 min-h-screen text-white p-8">
+    <main className="jogos-page">
 
-      <h1 className="text-center text-5xl font-bold text-red-500 mb-10">
-        Jogos
-      </h1>
+      <section className="jogos-header">
+        <span>SCOUTLINK</span>
 
-      <div className="flex flex-wrap justify-center gap-8">
+        <h1>Jogos em Destaque</h1>
+
+        <p>
+          Explore os principais jogos do cenário competitivo
+          e encontre talentos e organizações.
+        </p>
+      </section>
+
+      <section className="jogos-grid">
 
         {jogos.map((jogo) => (
-          <div
-            key={jogo.id}
-            className="bg-zinc-900 rounded-xl p-5 w-72 shadow-lg hover:scale-105 transition"
-          >
+          <article className="jogo-card" key={jogo.id}>
 
-            <img
-              src={jogo.imagem}
-              alt={jogo.nome}
-              className="w-full h-48 object-contain mb-4"
-            />
+            <div className="jogo-imagem">
+              <img
+                src={jogo.imagem}
+                alt={jogo.nome}
+              />
 
-            <h3 className="text-2xl font-bold text-center mb-2">
-              {jogo.nome}
-            </h3>
+              <div className="jogo-overlay">
+                <span>ESPORTS</span>
+              </div>
+            </div>
 
-            <p className="text-center text-red-400">
-              {jogo.categoria}
-            </p>
+            <div className="jogo-info">
 
-          </div>
+              <h2>{jogo.nome}</h2>
+
+              <p>
+                {jogo.descricao}
+              </p>
+
+              <div className="jogo-detalhes">
+
+                <div>
+                  <span>GÊNERO</span>
+                  <strong>{jogo.genero}</strong>
+                </div>
+
+                <div>
+                  <span>PLATAFORMA</span>
+                  <strong>{jogo.plataforma}</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
         ))}
 
-      </div>
+      </section>
 
-    </div>
+    </main>
   );
 }
 

@@ -1,26 +1,44 @@
+
 [
   {
     "id": 1,
     "nome": "Valorant",
-    "categoria": "FPS",
-    "imagem": "/img/vava.png"
+    "imagem": "/img/vava.png",
+    "descricao": "FPS competitivo da Riot Games com partidas táticas e agentes com habilidades únicas.",
+    "genero": "FPS",
+    "plataforma": "PC"
   },
   {
     "id": 2,
     "nome": "Counter-Strike 2",
-    "categoria": "FPS",
-    "imagem": "/img/cs.png"
+    "imagem": "/img/cs.png",
+    "descricao": "FPS tático competitivo conhecido por sua estratégia, precisão e trabalho em equipe.",
+    "genero": "FPS",
+    "plataforma": "PC"
   },
   {
     "id": 3,
     "nome": "League of Legends",
-    "categoria": "MOBA",
-    "imagem": "/img/lol.png"
-  },
+    "imagem": "/img/lol.png",
+    "descricao": "MOBA competitivo baseado em estratégia, trabalho em equipe e domínio de campeões.",
+    "genero": "MOBA",
+    "plataforma": "PC"
+  }
+  ,
   {
     "id": 4,
-    "nome": "Fortnite",
-    "categoria": "FPS / Battle Royale",
-    "imagem": "/img/fort.png"
+    "nome": "Rocket League",
+    "imagem": "/img/ROCKETLEAGUE.jpg",
+    "descricao": "Jogo de futebol com carros, combinando habilidades de condução e trabalho em equipe.",
+    "genero": "Esporte / Ação",
+    "plataforma": "PC / Consoles"
+  },
+  {
+    "id": 5,
+    "nome": "Fornite",
+    "imagem": "/img/fort.png",
+    "descricao": "Battle Royale popular com construção, ação rápida e eventos ao vivo.",
+    "genero": "Battle Royale",
+    "plataforma": "PC / Consoles / Mobile"
   }
 ]
