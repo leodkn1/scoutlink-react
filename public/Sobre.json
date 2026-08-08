@@ -2,31 +2,31 @@
     {
       "id": 1,
       "nome": "Guilherme",
-      "rm": "SEU RM",
+      "rm": "SEU RM:572138",
       "foto": "/img/guilherme.jpeg"
     },
     {
       "id": 2,
       "nome": "Isabelle",
-      "rm": "SEU RM",
+      "rm": "SEU RM:572696",
       "foto": "/img/belle.png"
     },
     {
       "id": 3,
       "nome": "Leonardo",
-      "rm": "SEU RM",
+      "rm": "SEU RM:570981",
       "foto": "/img/leo.jpg"
     },
     {
       "id": 4,
       "nome": "Maria",
-      "rm": "SEU RM",
+      "rm": "SEU RM:572660  ",
       "foto": "/img/maria.png"
     },
     {
       "id": 5,
       "nome": "Vinicius",
-      "rm": "SEU RM",
+      "rm": "SEU RM:569522",
       "foto": "/img/vinicius.png"
     }
   ]
