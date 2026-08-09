@@ -2,7 +2,7 @@
   {
     "id": 1,
     "nome": "LOUD",
-    "logo": "/img/LOUD.png",
+    "logo": "/img/logo_loud.png",
     "descricao": "Organização brasileira presente em diferentes modalidades do cenário competitivo.",
     "jogos": [
       "Valorant",
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "nome": "MIBR",
-    "logo": "/img/MIBR.jpg",
+    "logo": "/img/logo_mibr.jpg",
     "descricao": "Organização tradicional do cenário brasileiro de eSports.",
     "jogos": [
       "CS2",

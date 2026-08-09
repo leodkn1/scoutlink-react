@@ -1,16 +1,99 @@
-# React + Vite
+# 🎮 ScoutLink
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Conectando talentos aos grandes palcos do eSports.
 
-Currently, two official plugins are available:
+## 📌 Sobre o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O ScoutLink é uma plataforma desenvolvida para aproximar jogadores,
+talentos e organizações do cenário competitivo de eSports.
 
-## React Compiler
+A proposta é facilitar a descoberta de novos talentos e apresentar
+oportunidades para jogadores que desejam evoluir no cenário competitivo.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎯 Objetivo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O projeto tem como objetivo criar uma plataforma que facilite a
+conexão entre:
+
+- 🎮 Jogadores
+- ⭐ Talentos
+- 🏆 Organizações
+- 🎯 Oportunidades
+
+---
+
+## 🚀 Funcionalidades
+
+Atualmente a plataforma possui:
+
+- [x] Página inicial
+- [x] Página de talentos
+- [x] Página de organizações
+- [x] Página de jogos
+- [x] Página sobre o projeto
+- [x] Página de login
+- [x] Navegação entre páginas
+- [x] Exibição de talentos através de JSON
+- [x] Exibição de organizações através de JSON
+- [x] Exibição de jogos através de JSON
+
+### 🔧 Em desenvolvimento
+
+- [ ] Sistema de autenticação completo
+- [ ] Cadastro de jogadores
+- [ ] Cadastro de organizações
+- [ ] Busca e filtros avançados
+- [ ] Sistema de contato entre jogadores e organizações
+
+---
+
+## 💻 Tecnologias utilizadas
+
+- React
+- JavaScript
+- HTML5
+- CSS3
+- Vite
+- React Router
+- JSON
+- Git
+- GitHub
+
+---
+
+## 📂 Estrutura do projeto
+
+```text
+src/
+├── components/
+│   ├── Navbar.jsx
+│   └── Footer.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Talentos.jsx
+│   ├── Organizacoes.jsx
+│   ├── Jogos.jsx
+│   ├── Sobre.jsx
+│   └── Login.jsx
+│
+└── styles/
+    ├── home.css
+    ├── Talentos.css
+    ├── organizacoes.css
+    ├── jogos.css
+    └── sobre.css
+
+==================================
+
+| Integrante |   RM   |
+
+| Guilherme  | 572138 |
+| Leonardo   | 570981 |
+| Isabelle   | 572696 |
+| Maria      | 572660 |
+| Vinicius   | 569522 |
+
+=================================
