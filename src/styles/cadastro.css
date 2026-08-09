@@ -1,73 +1,100 @@
-.login-container {
+.cadastro-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+
+  padding: 20px;
 }
 
-.login-box {
+.cadastro-box {
   width: 100%;
-  max-width: 430px;
+  max-width: 420px;
+
   background: #1a1a1a;
+
   border-radius: 20px;
-  padding: 50px;
+
+  padding: 40px;
+
   text-align: center;
+
   box-shadow: 0 0 30px rgba(155, 32, 32, 0.25);
+
   border: 1px solid rgba(255, 255, 255, 0.05);
+
+  box-sizing: border-box;
 }
 
-.login-logo img {
-  width: 90px;
+.cadastro-logo img {
+  width: 80px;
   margin-bottom: 10px;
-  margin-left: 120px;
 }
 
-.login-tag {
+.cadastro-tag {
   color: #db7777;
+
   font-size: 12px;
   font-weight: bold;
+
   letter-spacing: 2px;
 }
 
-.login-box h1 {
+.cadastro-box h1 {
   color: white;
+
   margin: 15px 0 10px;
+
   font-size: 2rem;
 }
 
-.login-description {
+.cadastro-description {
   color: #999;
+
   font-size: 14px;
+
   margin-bottom: 25px;
 }
 
 .input-group {
   text-align: left;
+
   margin-bottom: 15px;
 }
 
 .input-group label {
   display: block;
+
   color: #ddd;
+
   font-size: 13px;
+
   margin-bottom: 6px;
 }
 
-.login-box .input {
+.cadastro-box .input {
   width: 100%;
+
   padding: 14px;
+
   border: 1px solid #333;
+
   border-radius: 10px;
+
   background: #2a2a2a;
+
   color: white;
+
   font-size: 15px;
+
   box-sizing: border-box;
 }
 
-.login-box .input:focus {
+.cadastro-box .input:focus {
   outline: none;
+
   border-color: #9b2020;
 }
 
@@ -81,75 +108,108 @@
 
 .show-password {
   position: absolute;
+
   right: 10px;
   top: 50%;
+
   transform: translateY(-50%);
+
   border: none;
+
   background: none;
+
   color: #db7777;
+
   cursor: pointer;
 }
 
-.btn-login,
 .btn-cadastro {
   width: 100%;
+
   padding: 14px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
 
-.btn-login {
   border: none;
+
+  border-radius: 10px;
+
   background: #9b2020;
+
   color: white;
+
   font-size: 16px;
-}
 
-.btn-login:hover {
-  background: #b52b2b;
-}
+  font-weight: bold;
 
-.btn-cadastro {
-  margin-top: 15px;
-  border: 1px solid #444;
-  background: transparent;
-  color: white;
+  cursor: pointer;
 }
 
 .btn-cadastro:hover {
+  background: #b52b2b;
+}
+
+.cadastro-divider {
+  margin: 20px 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.btn-login {
+  width: 100%;
+
+  padding: 13px;
+
+  border: 1px solid #444;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.btn-login:hover {
   border-color: #9b2020;
 }
 
 .msg {
   margin-top: 15px;
+
   padding: 10px;
+
   border-radius: 8px;
+
   font-size: 13px;
+
   font-weight: bold;
 }
 
 .msg.error {
   color: #ff8a8a;
+
   background: rgba(180, 30, 30, 0.1);
 }
 
 .msg.success {
   color: #7ee787;
-  background: rgba(50, 180, 90, 0.1);
-}
 
-.login-divider {
-  margin: 20px 0;
-  color: #666;
-  font-size: 13px;
+  background: rgba(50, 180, 90, 0.1);
 }
 
 .back-home {
   margin-top: 15px;
+
   border: none;
+
   background: none;
+
   color: #777;
+
   cursor: pointer;
 }
 
