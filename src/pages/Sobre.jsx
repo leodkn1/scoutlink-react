@@ -126,7 +126,7 @@ function Sobre() {
                 </h3>
 
                 <p>
-                  RM: {membro.rm}
+                   {membro.rm}
                 </p>
 
               </div>

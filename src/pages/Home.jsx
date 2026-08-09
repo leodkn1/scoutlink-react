@@ -4,7 +4,7 @@ function Home() {
   return (
     <main className="home">
 
-      {/* HERO */}
+      
       <section className="hero">
 
         <div className="hero-content">
@@ -49,7 +49,7 @@ function Home() {
       </section>
 
 
-      {/* SOBRE A PLATAFORMA */}
+     
       <section className="home-intro">
 
         <span>COMO FUNCIONA</span>
@@ -67,7 +67,7 @@ function Home() {
       </section>
 
 
-      {/* CARDS */}
+      
       <section className="home-cards">
 
         <article className="home-card">
@@ -138,7 +138,7 @@ function Home() {
       </section>
 
 
-      {/* CTA */}
+      
       <section className="home-cta">
 
         <h2>

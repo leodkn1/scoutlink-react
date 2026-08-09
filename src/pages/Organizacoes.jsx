@@ -38,7 +38,7 @@ function Organizacoes() {
             key={organizacao.id}
           >
 
-            {/* LOGO */}
+            
             <div className="organizacao-logo-container">
 
               <img
@@ -49,7 +49,7 @@ function Organizacoes() {
 
             </div>
 
-            {/* CONTEÚDO */}
+            
             <div className="organizacao-info">
 
               <span className="organizacao-label">
@@ -62,7 +62,7 @@ function Organizacoes() {
                 {organizacao.descricao}
               </p>
 
-              {/* JOGOS */}
+             
               <div className="organizacao-jogos">
 
                 {organizacao.jogos.map((jogo, index) => (

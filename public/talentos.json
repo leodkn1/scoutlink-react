@@ -4,23 +4,23 @@
     "nome": "Guilherme",
     "jogo": "Valorant",
     "rank": "Radiante",
-    "foto": "/img/foto.jpeg",
-    "gameplay": "/videos/guilherme.mp4"
+    "foto": "/img/guilherme.jpeg",
+    "gameplay": "../video/valorant.mp4"
   },
   {
     "id": 2,
     "nome": "Leonardo",
-    "jogo": "CS2",
-    "rank": "Global Elite",
+    "jogo": "Rocket League",
+    "rank": "Campeão  ",
     "foto": "/img/leo.jpg",
-    "gameplay": "/videos/leonardo.mp4"
+    "gameplay": "/video/rocket.mp4"
   },
   {
     "id": 3,
     "nome": "Maria",
-    "jogo": "League of Legends",
-    "rank": "Desafiante",
+    "jogo": "Fortnite",
+    "rank": "Surreal",
     "foto": "/img/maria.png",
-    "gameplay": "/videos/maria.mp4"
+    "gameplay": "/video/fortnite.mp4"
   }
 ]

@@ -33,7 +33,7 @@ function Talentos() {
         {talentos.map((talento) => (
           <article className="talento-card" key={talento.id}>
 
-            {/* FOTO */}
+            
             <div className="talento-foto-container">
               <img
                 src={talento.foto}
@@ -42,7 +42,7 @@ function Talentos() {
               />
             </div>
 
-            {/* INFORMAÇÕES */}
+            
             <div className="talento-info">
 
               <div className="talento-topo">
@@ -73,7 +73,7 @@ function Talentos() {
 
               </div>
 
-              {/* GAMEPLAY */}
+              
               <div className="gameplay">
 
                 <div className="gameplay-header">
