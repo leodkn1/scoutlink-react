@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/home.css";
 
+
+
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <main className="home">
 
-      
+
       <section className="hero">
 
         <div className="hero-content">
@@ -25,11 +30,17 @@ function Home() {
 
           <div className="hero-buttons">
 
-            <button className="btn-primary">
+            <button
+              className="btn-primary"
+              onClick={() => navigate("/talentos")}
+            >
               Encontrar talentos
             </button>
 
-            <button className="btn-secondary">
+            <button
+              className="btn-secondary"
+              onClick={() => navigate("/login")}
+            >
               Sou jogador
             </button>
 
@@ -49,7 +60,7 @@ function Home() {
       </section>
 
 
-     
+
       <section className="home-intro">
 
         <span>COMO FUNCIONA</span>
@@ -67,7 +78,7 @@ function Home() {
       </section>
 
 
-      
+
       <section className="home-cards">
 
         <article className="home-card">
@@ -85,7 +96,7 @@ function Home() {
             ranks e estilos de gameplay.
           </p>
 
-          <button>
+          <button onClick={() => navigate("/talentos")}>
             Ver talentos →
           </button>
 
@@ -107,7 +118,7 @@ function Home() {
             parte do cenário competitivo.
           </p>
 
-          <button>
+          <button onClick={() => navigate("/organizacoes")}>
             Ver organizações →
           </button>
 
@@ -129,7 +140,7 @@ function Home() {
             e construir sua carreira nos eSports.
           </p>
 
-          <button>
+          <button onClick={() => navigate("/jogos")} >
             Explorar →
           </button>
 
@@ -138,7 +149,7 @@ function Home() {
       </section>
 
 
-      
+
       <section className="home-cta">
 
         <h2>
@@ -150,7 +161,7 @@ function Home() {
           no cenário competitivo.
         </p>
 
-        <button>
+        <button onClick={() => navigate("/talentos")}>
           Começar agora →
         </button>
 
