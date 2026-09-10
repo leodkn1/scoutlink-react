@@ -10,6 +10,7 @@ import Jogos from "./pages/Jogos";
 import Sobre from "./pages/Sobre";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
+import DashboardTalentos from "./pages/DashboardTalentos";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/talentos" element={<Talentos />} />
+        <Route
+         path="/dashboard-talentos"
+           element={<DashboardTalentos />}
+           />
         <Route path="/organizacoes" element={<Organizacoes />} />
         <Route path="/jogos" element={<Jogos />} />
         <Route path="/sobre" element={<Sobre />} />

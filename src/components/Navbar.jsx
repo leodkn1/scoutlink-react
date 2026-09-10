@@ -33,9 +33,14 @@ function Navbar() {
             Sobre
           </Link>
 
+          <Link className="nav-link" to="/dashboard-talentos">
+            Dashboard
+          </Link>
+
           <Link className="btn_perfil" to="/login">
             Login
           </Link>
+          
 
         </div>
 
