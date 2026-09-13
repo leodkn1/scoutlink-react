@@ -1,14 +1,9 @@
-
-
 .talentos-page {
   min-height: 100vh;
   background: #181818;
   color: #ffffff;
   padding: 60px 7%;
 }
-
-
-
 
 .talentos-header {
   max-width: 1100px;
@@ -30,94 +25,60 @@
   font-size: 16px;
 }
 
-
-
-
 .talentos-lista {
   max-width: 1100px;
   margin: auto;
-
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-
-
-
 .talento-card {
   background: #222222;
-
   border: 1px solid #333333;
   border-radius: 14px;
-
   padding: 20px;
-
   display: flex;
   gap: 25px;
-
   position: relative;
-
   overflow: hidden;
-
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
-
-
-
 .talento-card::before {
   content: "";
-
   position: absolute;
-
   left: 0;
   top: 0;
-
   width: 5px;
   height: 100%;
-
   background: #c62828;
 }
 
-
-
-
 .talento-card:hover {
   transform: translateY(-4px);
-
   border-color: #c62828;
-
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.5);
 }
-
-
-
 
 .talento-foto-container {
   width: 190px;
   min-width: 190px;
   height: 240px;
-
   overflow: hidden;
-
   border-radius: 10px;
-
   background: #111111;
-
   border: 2px solid #333333;
 }
 
 .talento-foto {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   transition: transform 0.4s ease;
 }
 
@@ -125,18 +86,11 @@
   transform: scale(1.05);
 }
 
-
-
-
 .talento-info {
   flex: 1;
-
   display: flex;
   flex-direction: column;
 }
-
-
-
 
 .talento-topo {
   display: flex;
@@ -147,43 +101,27 @@
 .talento-label {
   font-size: 11px;
   font-weight: bold;
-
   color: #c62828;
-
   letter-spacing: 2px;
 }
 
 .talento-topo h2 {
   margin: 3px 0 0;
-
   font-size: 28px;
 }
 
-
-
-
 .talento-rank {
   background: #ffd21f;
-
   color: #111111;
-
   padding: 7px 13px;
-
   border-radius: 5px;
-
   font-size: 13px;
-
   font-weight: bold;
 }
 
-
-
-
 .talento-dados {
   display: flex;
-
   gap: 50px;
-
   margin-top: 15px;
 }
 
@@ -194,85 +132,100 @@
 
 .talento-dados span {
   color: #888888;
-
   font-size: 10px;
-
   font-weight: bold;
-
   letter-spacing: 1px;
 }
 
 .talento-dados strong {
   margin-top: 3px;
-
   font-size: 15px;
-
   color: #ffffff;
 }
 
+.talento-descricao {
+  margin-top: 20px;
+  padding: 15px;
+  background: #191919;
+  border: 1px solid #333333;
+  border-radius: 8px;
+}
 
+.talento-descricao > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #999999;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
 
+.talento-descricao > p {
+  margin: 0;
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.seguranca-alerta {
+  padding: 12px;
+  background: #2a1f1f;
+  border: 1px solid #c62828;
+  border-radius: 7px;
+}
+
+.seguranca-alerta strong {
+  display: block;
+  color: #ff5252;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.seguranca-alerta p {
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 13px;
+  line-height: 1.5;
+}
 
 .gameplay {
   margin-top: 18px;
-
   flex: 1;
 }
 
 .gameplay-header {
   margin-bottom: 7px;
-
   font-size: 11px;
-
   font-weight: bold;
-
   color: #999999;
-
   letter-spacing: 1.5px;
 }
 
 .gameplay video {
   width: 100%;
-
   max-width: 560px;
-
   height: 300px;
-
   object-fit: cover;
-
   display: block;
-
   background: #0d0d0d;
-
   border-radius: 8px;
-
   border: 1px solid #333333;
 }
-
-
-
 
 .gameplay-vazio {
   width: 100%;
   max-width: 560px;
-
   height: 150px;
-
   background:
     linear-gradient(
       135deg,
       #111111,
       #1d1d1d
     );
-
   border: 1px solid #333333;
-
   border-radius: 8px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 }
@@ -280,51 +233,31 @@
 .gameplay-vazio span {
   width: 45px;
   height: 45px;
-
   border-radius: 50%;
-
   background: #c62828;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   font-size: 18px;
-
   padding-left: 2px;
 }
 
 .gameplay-vazio p {
   margin-top: 8px;
-
   color: #777777;
-
   font-size: 12px;
 }
 
-
-
-
 .btn-perfil {
   align-self: flex-start;
-
   margin-top: 15px;
-
   background: #c62828;
-
   color: white;
-
   border: none;
-
   border-radius: 6px;
-
   padding: 10px 18px;
-
   font-weight: bold;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     transform 0.2s ease;
@@ -336,15 +269,10 @@
 
 .btn-perfil:hover {
   background: #e53935;
-
   transform: translateX(3px);
 }
 
-
-
-
 @media (max-width: 750px) {
-
   .talentos-page {
     padding: 40px 20px;
   }
@@ -375,5 +303,116 @@
   .gameplay-vazio {
     max-width: 100%;
   }
+}
 
+.talentos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.privacidade-btn {
+  background: #c62828;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.privacidade-btn:hover {
+  background: #9b2020;
+  transform: translateY(-2px);
+}
+
+.privacidade-btn.privacidade-ativa {
+  background: #ffd21f;
+  color: #181818;
+}
+
+.privacidade-box {
+  margin-top: 25px;
+  padding: 18px 22px;
+  background: #222;
+  border: 1px solid #444;
+  border-left: 5px solid #ffd21f;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.privacidade-icone {
+  font-size: 28px;
+}
+
+.privacidade-box strong {
+  display: block;
+  color: #ffd21f;
+  margin-bottom: 5px;
+}
+
+.privacidade-box p {
+  margin: 0;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.dados-protegidos {
+  margin-top: 20px;
+  padding: 12px 15px;
+  background: #191919;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+
+.dados-protegidos span {
+  color: #ffd21f;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.dados-protegidos strong {
+  display: block;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.talento-publico {
+  margin-top: 18px;
+  padding: 12px 15px;
+  background: rgba(198, 40, 40, 0.08);
+  border-left: 3px solid #c62828;
+  border-radius: 5px;
+}
+
+.talento-publico span {
+  color: #c62828;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.talento-publico p {
+  margin: 5px 0 0;
+  color: #bbb;
+  font-size: 13px;
+}
+
+@media (max-width: 750px) {
+  .talentos-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .privacidade-btn {
+    width: 100%;
+  }
+
+  .privacidade-box {
+    align-items: flex-start;
+  }
 }

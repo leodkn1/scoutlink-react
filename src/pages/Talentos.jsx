@@ -3,6 +3,7 @@ import "../styles/Talento.css";
 
 function Talentos() {
   const [talentos, setTalentos] = useState([]);
+  const [mostrarPrivacidade, setMostrarPrivacidade] = useState(false);
 
   useEffect(() => {
     async function carregarTalentos() {
@@ -22,18 +23,52 @@ function Talentos() {
     <main className="talentos-page">
 
       <section className="talentos-header">
-        <h1>Talentos em Destaque</h1>
-        <p>
-          Descubra jogadores prontos para alcançar o próximo nível.
-        </p>
+        <div>
+          <h1>Talentos em Destaque</h1>
+
+          <p>
+            Descubra jogadores prontos para alcançar o próximo nível.
+          </p>
+        </div>
+
+        <button
+          className={`privacidade-btn ${
+            mostrarPrivacidade ? "privacidade-ativa" : ""
+          }`}
+          onClick={() =>
+            setMostrarPrivacidade(!mostrarPrivacidade)
+          }
+        >
+          {mostrarPrivacidade ? "🔒 Dados protegidos" : "🔓 Perfil público"}
+        </button>
       </section>
+
+      {mostrarPrivacidade && (
+        <section className="privacidade-box">
+          <div className="privacidade-icone">
+            🔒
+          </div>
+
+          <div>
+            <strong>Proteção de dados ativa</strong>
+
+            <p>
+              Informações pessoais dos jogadores não são
+              exibidas publicamente. O perfil apresenta apenas
+              dados necessários para avaliação esportiva.
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="talentos-lista">
 
         {talentos.map((talento) => (
-          <article className="talento-card" key={talento.id}>
+          <article
+            className="talento-card"
+            key={talento.id}
+          >
 
-            
             <div className="talento-foto-container">
               <img
                 src={talento.foto}
@@ -42,10 +77,10 @@ function Talentos() {
               />
             </div>
 
-            
             <div className="talento-info">
 
               <div className="talento-topo">
+
                 <div>
                   <span className="talento-label">
                     JOGADOR
@@ -57,6 +92,7 @@ function Talentos() {
                 <span className="talento-rank">
                   {talento.rank}
                 </span>
+
               </div>
 
               <div className="talento-dados">
@@ -71,9 +107,34 @@ function Talentos() {
                   <strong>{talento.rank}</strong>
                 </div>
 
+                <div>
+                  <span>PRIVACIDADE</span>
+                  <strong className="dados-protegidos">
+                    🔒 Protegido
+                  </strong>
+                </div>
+
               </div>
 
-              
+              <div className="talento-publico">
+
+                <span>
+                  PERFIL PÚBLICO
+                </span>
+
+                <p>
+                  Este perfil exibe somente informações
+                  relacionadas ao desempenho competitivo
+                  do jogador.
+                </p>
+
+              </div>
+<div className="talento-descricao">
+  <span>DESCRIÇÃO</span>
+  <p>
+    {talento.descricao || "Este jogador ainda não possui uma descrição."}
+  </p>
+</div>
               <div className="gameplay">
 
                 <div className="gameplay-header">
@@ -88,13 +149,14 @@ function Talentos() {
                 ) : (
                   <div className="gameplay-vazio">
                     <span>▶</span>
-                    <p>Gameplay não disponível</p>
+
+                    <p>
+                      Gameplay não disponível
+                    </p>
                   </div>
                 )}
 
               </div>
-
-              
 
             </div>
 
@@ -107,4 +169,4 @@ function Talentos() {
   );
 }
 
-export default Talentos;
+export default Talentos; 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../services/firebase";
 import "../styles/login.css";
 
 function Login() {
@@ -15,105 +17,81 @@ function Login() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-
-    if (user) {
-      try {
-        const parsedUser = JSON.parse(user);
-
-        setMessage(
-          `Você já está logado como ${parsedUser.email}`
-        );
-
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setMessage(`Você já está logado como ${user.email}`);
         setMessageType("success");
-      } catch (erro) {
-        localStorage.removeItem("user");
       }
-    }
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     setMessage("");
     setMessageType("");
 
-   
-    if (!email.trim()) {
+    const emailNormalizado = email.trim().toLowerCase();
+
+    if (!emailNormalizado) {
       setMessage("Digite seu e-mail.");
       setMessageType("error");
       return;
     }
 
-    if (!email.includes("@")) {
+    if (!emailNormalizado.includes("@")) {
       setMessage("Digite um e-mail válido.");
       setMessageType("error");
       return;
     }
 
-   
     if (!password) {
       setMessage("Digite sua senha.");
       setMessageType("error");
       return;
     }
 
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    setTimeout(() => {
-      const savedUser = localStorage.getItem("scoutlinkUser");
+      await signInWithEmailAndPassword(
+        auth,
+        emailNormalizado,
+        password
+      );
 
-      if (!savedUser) {
-        setMessage(
-          "Nenhuma conta encontrada. Crie uma conta primeiro."
-        );
+      setMessage("Login realizado com sucesso!");
+      setMessageType("success");
 
-        setMessageType("error");
-        setLoading(false);
-        return;
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } catch (erro) {
+      if (
+        erro.code === "auth/invalid-credential" ||
+        erro.code === "auth/wrong-password" ||
+        erro.code === "auth/user-not-found"
+      ) {
+        setMessage("E-mail ou senha incorretos.");
+      } else if (erro.code === "auth/too-many-requests") {
+        setMessage("Muitas tentativas. Aguarde alguns minutos.");
+      } else if (erro.code === "auth/invalid-email") {
+        setMessage("Digite um e-mail válido.");
+      } else {
+        setMessage("Erro ao realizar login. Tente novamente.");
       }
 
-      try {
-        const user = JSON.parse(savedUser);
-
-        if (
-          user.email === email.trim().toLowerCase() &&
-          user.password === password
-        ) {
-          localStorage.setItem(
-            "user",
-            JSON.stringify({
-              email: user.email,
-              nome: user.nome,
-            })
-          );
-
-          setMessage("Login realizado com sucesso!");
-          setMessageType("success");
-
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        } else {
-          setMessage("E-mail ou senha incorretos.");
-          setMessageType("error");
-        }
-      } catch (erro) {
-        console.error("Erro ao verificar usuário:", erro);
-
-        setMessage("Erro ao realizar login.");
-        setMessageType("error");
-      }
-
+      setMessageType("error");
+    } finally {
       setLoading(false);
-    }, 500);
+    }
   };
 
   return (
     <main className="login-container">
-
       <div className="login-box">
-
         <div className="login-logo">
           <img
             src="/img/SCOUTLINK.png"
@@ -135,9 +113,7 @@ function Login() {
         </p>
 
         <form onSubmit={handleLogin}>
-
           <div className="input-group">
-
             <label htmlFor="email">
               E-mail
             </label>
@@ -150,18 +126,14 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-
           </div>
 
-
           <div className="input-group">
-
             <label htmlFor="password">
               Senha
             </label>
 
             <div className="password-container">
-
               <input
                 id="password"
                 className="input"
@@ -174,15 +146,14 @@ function Login() {
               <button
                 type="button"
                 className="show-password"
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={() =>
+                  setShowPassword(!showPassword)
+                }
               >
                 {showPassword ? "Ocultar" : "Mostrar"}
               </button>
-
             </div>
-
           </div>
-
 
           <button
             type="submit"
@@ -191,9 +162,7 @@ function Login() {
           >
             {loading ? "Entrando..." : "Entrar"}
           </button>
-
         </form>
-
 
         {message && (
           <p className={`msg ${messageType}`}>
@@ -201,11 +170,9 @@ function Login() {
           </p>
         )}
 
-
         <div className="login-divider">
           <span>ou</span>
         </div>
-
 
         <button
           className="btn-cadastro"
@@ -214,16 +181,13 @@ function Login() {
           Criar uma conta
         </button>
 
-
         <button
           className="back-home"
           onClick={() => navigate("/")}
         >
           ← Voltar para Home
         </button>
-
       </div>
-
     </main>
   );
 }

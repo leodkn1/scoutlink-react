@@ -5,6 +5,7 @@
     "jogo": "Valorant",
     "rank": "Radiante",
     "foto": "/img/guilherme.jpeg",
+     "descricao": "Jogador competitivo focado em Valorant e torneios online.",
     "gameplay": "../video/valorant.mp4"
   },
   {
@@ -13,6 +14,7 @@
     "jogo": "Rocket League",
     "rank": "Campeão  ",
     "foto": "/img/leo.jpg",
+    "descricao": "Jogador talentoso em Rocket League com uma carreira bem-sucedida em torneios.",
     "gameplay": "/video/rocket.mp4"
   },
   {
@@ -21,6 +23,7 @@
     "jogo": "Fortnite",
     "rank": "Surreal",
     "foto": "/img/maria.png",
+    "descricao": "Jogadora competitiva. Telefone: 11999999999",
     "gameplay": "/video/fortnite.mp4"
   }
 ]

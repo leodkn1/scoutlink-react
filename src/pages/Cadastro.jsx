@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../services/firebase";
 import "../styles/cadastro.css";
 
 function Cadastro() {
@@ -15,34 +18,35 @@ function Cadastro() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleCadastro = (e) => {
+  const handleCadastro = async (e) => {
     e.preventDefault();
 
     setMessage("");
     setMessageType("");
 
-   
-    if (!nome.trim()) {
+    const nomeNormalizado = nome.trim();
+    const emailNormalizado = email.trim().toLowerCase();
+
+    if (!nomeNormalizado) {
       setMessage("Digite seu nome.");
       setMessageType("error");
       return;
     }
 
-    
-    if (!email.trim()) {
+    if (!emailNormalizado) {
       setMessage("Digite seu e-mail.");
       setMessageType("error");
       return;
     }
 
-    if (!email.includes("@")) {
+    if (!emailNormalizado.includes("@")) {
       setMessage("Digite um e-mail válido.");
       setMessageType("error");
       return;
     }
 
-    
     if (!password) {
       setMessage("Digite uma senha.");
       setMessageType("error");
@@ -55,62 +59,81 @@ function Cadastro() {
       return;
     }
 
-    
     if (password !== confirmPassword) {
       setMessage("As senhas não coincidem.");
       setMessageType("error");
       return;
     }
 
-   
-    const savedUser = localStorage.getItem("scoutlinkUser");
+    try {
+      setLoading(true);
 
-    if (savedUser) {
-      try {
-        const user = JSON.parse(savedUser);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        emailNormalizado,
+        password
+      );
 
-        if (user.email === email.trim().toLowerCase()) {
-          setMessage("Este e-mail já está cadastrado.");
-          setMessageType("error");
-          return;
-        }
-      } catch (erro) {
-        localStorage.removeItem("scoutlinkUser");
+      const user = userCredential.user;
+
+      await setDoc(doc(db, "users", user.uid), {
+        nome: nomeNormalizado,
+        email: emailNormalizado,
+        nickname: "",
+        foto: "",
+        jogoPrincipal: "",
+        rank: "",
+        cidade: "",
+        bio: "",
+        funcao: "",
+        timesAnteriores: [],
+        conquistas: [],
+        redesSociais: {
+          instagram: "",
+          youtube: "",
+          twitch: "",
+          discord: ""
+        },
+        estatisticas: "",
+        horasJogo: "",
+        disponibilidade: "",
+        tipoUsuario: "jogador",
+        criadoEm: new Date().toISOString()
+      });
+
+      setMessage("Conta criada com sucesso!");
+      setMessageType("success");
+
+      setNome("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 1200);
+    } catch (erro) {
+      if (erro.code === "auth/email-already-in-use") {
+        setMessage("Este e-mail já está cadastrado.");
+      } else if (erro.code === "auth/invalid-email") {
+        setMessage("Digite um e-mail válido.");
+      } else if (erro.code === "auth/weak-password") {
+        setMessage("A senha precisa ser mais forte.");
+      } else if (erro.code === "permission-denied") {
+        setMessage("Não foi possível salvar o perfil no banco de dados.");
+      } else {
+        setMessage("Erro ao criar a conta. Tente novamente.");
       }
+
+      setMessageType("error");
+    } finally {
+      setLoading(false);
     }
-
-    
-    const newUser = {
-      nome: nome.trim(),
-      email: email.trim().toLowerCase(),
-      password: password,
-    };
-
-    localStorage.setItem(
-      "scoutlinkUser",
-      JSON.stringify(newUser)
-    );
-
-    setMessage("Conta criada com sucesso!");
-    setMessageType("success");
-
-    
-    setNome("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-
-    
-    setTimeout(() => {
-      navigate("/login");
-    }, 1200);
   };
 
   return (
     <main className="cadastro-container">
-
       <div className="cadastro-box">
-
         <div className="cadastro-logo">
           <img
             src="/img/SCOUTLINK.png"
@@ -131,9 +154,7 @@ function Cadastro() {
         </p>
 
         <form onSubmit={handleCadastro}>
-
           <div className="input-group">
-
             <label htmlFor="nome">
               Nome
             </label>
@@ -146,12 +167,9 @@ function Cadastro() {
               value={nome}
               onChange={(e) => setNome(e.target.value)}
             />
-
           </div>
 
-
           <div className="input-group">
-
             <label htmlFor="email">
               E-mail
             </label>
@@ -164,18 +182,14 @@ function Cadastro() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-
           </div>
 
-
           <div className="input-group">
-
             <label htmlFor="password">
               Senha
             </label>
 
             <div className="password-container">
-
               <input
                 id="password"
                 className="input"
@@ -188,69 +202,48 @@ function Cadastro() {
               <button
                 type="button"
                 className="show-password"
-                onClick={() =>
-                  setShowPassword(!showPassword)
-                }
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? "Ocultar" : "Mostrar"}
               </button>
-
             </div>
-
           </div>
 
-
           <div className="input-group">
-
             <label htmlFor="confirmPassword">
               Confirmar senha
             </label>
 
             <div className="password-container">
-
               <input
                 id="confirmPassword"
                 className="input"
-                type={
-                  showConfirmPassword
-                    ? "text"
-                    : "password"
-                }
+                type={showConfirmPassword ? "text" : "password"}
                 placeholder="Digite a senha novamente"
                 value={confirmPassword}
-                onChange={(e) =>
-                  setConfirmPassword(e.target.value)
-                }
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
 
               <button
                 type="button"
                 className="show-password"
                 onClick={() =>
-                  setShowConfirmPassword(
-                    !showConfirmPassword
-                  )
+                  setShowConfirmPassword(!showConfirmPassword)
                 }
               >
-                {showConfirmPassword
-                  ? "Ocultar"
-                  : "Mostrar"}
+                {showConfirmPassword ? "Ocultar" : "Mostrar"}
               </button>
-
             </div>
-
           </div>
-
 
           <button
             type="submit"
             className="btn-cadastro"
+            disabled={loading}
           >
-            Criar conta
+            {loading ? "Criando conta..." : "Criar conta"}
           </button>
-
         </form>
-
 
         {message && (
           <p className={`msg ${messageType}`}>
@@ -258,11 +251,9 @@ function Cadastro() {
           </p>
         )}
 
-
         <div className="cadastro-divider">
           <span>Já possui uma conta?</span>
         </div>
-
 
         <button
           className="btn-login"
@@ -271,16 +262,13 @@ function Cadastro() {
           Entrar
         </button>
 
-
         <button
           className="back-home"
           onClick={() => navigate("/")}
         >
           ← Voltar para Home
         </button>
-
       </div>
-
     </main>
   );
 }
