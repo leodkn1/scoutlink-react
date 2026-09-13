@@ -289,7 +289,7 @@ function Organizacoes() {
           </h2>
 
           <p>
-            Explore perfis, conheça jogadores e descubra
+            Explore perfis conheça jogadores e  descubra
             novos nomes para o cenário competitivo.
           </p>
         </div>
