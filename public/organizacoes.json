@@ -4,29 +4,83 @@
     "nome": "LOUD",
     "logo": "/img/logo_loud.png",
     "descricao": "Organização brasileira presente em diferentes modalidades do cenário competitivo.",
-    "jogos": [
-      "Valorant",
-      "Fornite"
-    ]
+    "jogos": ["Valorant", "Fortnite"]
   },
   {
     "id": 2,
     "nome": "FURIA",
     "logo": "/img/FURIA.png",
     "descricao": "Organização brasileira conhecida por sua atuação no cenário competitivo internacional.",
-    "jogos": [
-      "CS2",
-      "Valorant"
-    ]
+    "jogos": ["CS2", "Valorant"]
   },
   {
     "id": 3,
     "nome": "MIBR",
     "logo": "/img/logo_mibr.jpg",
     "descricao": "Organização tradicional do cenário brasileiro de eSports.",
-    "jogos": [
-      "CS2",
-      "Rocket League"
-    ]
+    "jogos": ["CS2", "Rocket League"]
+  },
+  {
+    "id": 4,
+    "nome": "paiN Gaming",
+    "logo": "/img/pain.png",
+    "descricao": "Uma das organizações mais tradicionais e reconhecidas do cenário brasileiro de eSports.",
+    "jogos": ["Valorant", "CS2", "League of Legends"]
+  },
+  {
+    "id": 5,
+    "nome": "Fluxo",
+    "logo": "/img/fluxo.png",
+    "descricao": "Organização brasileira com presença em diferentes modalidades competitivas.",
+    "jogos": ["Valorant", "Free Fire", "CS2"]
+  },
+  {
+    "id": 6,
+    "nome": "RED Canids",
+    "logo": "/img/redcanids.jpg",
+    "descricao": "Organização brasileira com atuação em grandes competições de eSports.",
+    "jogos": ["League of Legends", "CS2", "Valorant"]
+  },
+  {
+    "id": 7,
+    "nome": "INTZ",
+    "logo": "/img/intz.png",
+    "descricao": "Organização brasileira tradicional com histórico competitivo em diferentes jogos.",
+    "jogos": ["League of Legends", "Valorant", "CS2"]
+  },
+  {
+    "id": 8,
+    "nome": "Imperial Esports",
+    "logo": "/img/imperial.png",
+    "descricao": "Organização brasileira conhecida principalmente pela sua atuação no cenário de Counter-Strike.",
+    "jogos": ["CS2", "Valorant"]
+  },
+  {
+    "id": 9,
+    "nome": "W7M Esports",
+    "logo": "/img/w7m.png",
+    "descricao": "Organização brasileira presente em diferentes modalidades do cenário competitivo.",
+    "jogos": ["CS2", "Rainbow Six", "Valorant"]
+  },
+  {
+    "id": 10,
+    "nome": "M80",
+    "logo": "/img/M80.png",
+    "descricao": "Organização competitiva com presença em diferentes modalidades do cenário internacional.",
+    "jogos": ["Valorant", "CS2", "Rainbow Six"]
+  },
+  {
+    "id": 11,
+    "nome": "NRG",
+    "logo": "/img/nrg.png",
+    "descricao": "Organização internacional com forte presença no cenário competitivo de eSports.",
+    "jogos": ["Valorant", "CS2"]
+  },
+  {
+    "id": 12,
+    "nome": "Sentinels",
+    "logo": "/img/sentinels.png",
+    "descricao": "Organização internacional reconhecida pela sua atuação no cenário competitivo de Valorant.",
+    "jogos": ["Valorant", "Halo"]
   }
 ]

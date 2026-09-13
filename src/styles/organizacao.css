@@ -1,303 +1,444 @@
-
-
 .organizacoes-page {
-  min-height: 100vh;
-
-  background: #181818;
-
+  min-height: 80vh;
+  background: #111111;
   color: white;
-
-  padding: 60px 7%;
+  padding: 55px 20px 80px;
 }
 
-
-
-
 .organizacoes-header {
-  max-width: 1100px;
-
-  margin: 0 auto 45px;
-
-  border-left: 5px solid #ffd21f;
-
-  padding-left: 20px;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  border-left: 5px solid #e5c51f;
+  padding-left: 18px;
 }
 
 .organizacoes-header h1 {
-  margin: 0;
-
-  font-size: 36px;
-
-  font-weight: 800;
-
-  letter-spacing: 1px;
+  font-size: 38px;
+  margin: 0 0 10px;
 }
 
 .organizacoes-header p {
-  margin-top: 8px;
-
-  max-width: 700px;
-
   color: #999;
-
-  font-size: 16px;
+  margin: 0;
+  font-size: 15px;
 }
-
-
-
 
 .organizacoes-grid {
-  max-width: 1100px;
-
-  margin: auto;
-
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
-  gap: 25px;
+  gap: 24px;
 }
-
-
-
 
 .organizacao-card {
-  position: relative;
-
-  background: #222;
-
-  border: 1px solid #333;
-
-  border-radius: 14px;
-
-  padding: 22px;
-
+  min-height: 160px;
   display: flex;
-
+  align-items: center;
   gap: 20px;
-
-  overflow: hidden;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  background: #202020;
+  border: 1px solid #303030;
+  border-left: 4px solid #d51f29;
+  border-radius: 14px;
+  padding: 18px;
+  box-sizing: border-box;
 }
-
-
-
-
-.organizacao-card::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  width: 4px;
-  height: 100%;
-
-  background: #c62828;
-}
-
-
-
-
-.organizacao-card:hover {
-  transform: translateY(-5px);
-
-  border-color: #c62828;
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.45);
-}
-
-
-
 
 .organizacao-logo-container {
-  width: 130px;
-  min-width: 130px;
-
-  height: 130px;
-
-  background: #111;
-
-  border-radius: 12px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
+  width: 118px;
+  height: 118px;
+  flex-shrink: 0;
+  background: #111111;
   border: 1px solid #333;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .organizacao-logo {
-  width: 85%;
-
-  height: 85%;
-
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-
-  transition: transform 0.3s ease;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.organizacao-card:hover .organizacao-logo {
-  transform: scale(1.08);
+.organizacao-logo-text {
+  color: white;
+  font-size: 23px;
+  font-weight: 900;
+  text-align: center;
 }
-
-
-
 
 .organizacao-info {
-  flex: 1;
-
-  display: flex;
-
-  flex-direction: column;
+  min-width: 0;
 }
 
 .organizacao-label {
+  color: #e32c35;
   font-size: 10px;
-
-  color: #c62828;
-
-  font-weight: bold;
-
+  font-weight: 900;
   letter-spacing: 2px;
 }
 
 .organizacao-info h2 {
-  margin: 3px 0 8px;
-
-  font-size: 25px;
-
-  font-weight: 800;
+  font-size: 23px;
+  margin: 7px 0;
 }
-
-
-
 
 .organizacao-descricao {
-  margin: 0;
-
   color: #aaa;
-
   font-size: 13px;
-
   line-height: 1.5;
+  margin: 0 0 12px;
 }
-
-
-
 
 .organizacao-jogos {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 7px;
-
-  margin-top: 14px;
 }
 
 .organizacao-jogos span {
-  background: #ffd21f;
-
+  background: #ffd21c;
   color: #111;
-
-  padding: 5px 9px;
-
-  border-radius: 4px;
-
+  padding: 6px 9px;
+  border-radius: 5px;
   font-size: 11px;
-
-  font-weight: bold;
+  font-weight: 800;
 }
 
+.organizacoes-talentos {
+  max-width: 1000px;
+  margin: 65px auto 0;
+  padding: 35px;
+  background: #181818;
+  border: 1px solid #303030;
+  border-radius: 16px;
+}
 
+.organizacoes-talentos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 28px;
+}
 
+.organizacoes-talentos-header h2 {
+  font-size: 31px;
+  margin: 8px 0;
+}
 
-.btn-organizacao {
-  align-self: flex-start;
+.organizacoes-talentos-header p {
+  color: #999;
+  max-width: 560px;
+  line-height: 1.6;
+  margin: 0;
+}
 
-  margin-top: 15px;
+.organizacoes-busca {
+  width: 330px;
+  flex-shrink: 0;
+}
 
-  background: #c62828;
+.organizacoes-busca span {
+  display: block;
+  color: #aaa;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
 
+.organizacoes-busca input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #111111;
   color: white;
+  border: 1px solid #393939;
+  border-radius: 10px;
+  padding: 14px;
+  outline: none;
+  font-size: 14px;
+}
 
+.organizacoes-busca input:focus {
+  border-color: #d51f29;
+}
+
+.organizacoes-talentos-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 16px;
+  background: #111111;
+  border-radius: 9px;
+  margin-bottom: 18px;
+}
+
+.organizacoes-talentos-status strong {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.organizacoes-talentos-status button {
+  background: transparent;
+  color: #e36a70;
   border: none;
-
-  border-radius: 6px;
-
-  padding: 9px 14px;
-
-  font-weight: bold;
-
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  font-weight: 700;
 }
 
-.btn-organizacao span {
-  margin-left: 7px;
+.organizacoes-talentos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 }
 
-.btn-organizacao:hover {
-  background: #e53935;
-
-  transform: translateX(3px);
+.organizacao-talento-card {
+  display: flex;
+  gap: 16px;
+  background: #111111;
+  border: 1px solid #2c2c2c;
+  border-radius: 13px;
+  padding: 18px;
 }
 
+.organizacao-talento-foto {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #9b2020;
+  border: 2px solid #3b3b3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.organizacao-talento-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.organizacao-talento-foto span {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.organizacao-talento-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.talento-card-label {
+  color: #e32c35;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.organizacao-talento-info h3 {
+  font-size: 21px;
+  margin: 5px 0 2px;
+}
+
+.talento-card-nickname {
+  color: #888;
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+
+.talento-card-dados {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.talento-card-dados span {
+  color: #ccc;
+  font-size: 12px;
+}
+
+.talento-card-dados small {
+  display: block;
+  color: #777;
+  font-size: 9px;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+
+.organizacao-ver-perfil {
+  display: inline-block;
+  background: #9b2020;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.organizacao-ver-perfil:hover {
+  background: #db7777;
+}
+
+.organizacoes-talentos-carregando {
+  padding: 35px;
+  text-align: center;
+  color: #999;
+}
+
+.organizacoes-talentos-vazio {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #111111;
+  border: 1px dashed #363636;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.organizacoes-vazio-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #292929;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.organizacoes-talentos-vazio strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.organizacoes-talentos-vazio p {
+  color: #888;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.organizacoes-cta {
+  max-width: 1000px;
+  margin: 35px auto 0;
+  padding: 30px 35px;
+  background: linear-gradient(
+    120deg,
+    #211313,
+    #181818
+  );
+  border: 1px solid #3a2525;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.organizacoes-cta h2 {
+  margin: 7px 0;
+  font-size: 25px;
+}
+
+.organizacoes-cta p {
+  color: #999;
+  margin: 0;
+}
+
+.organizacoes-cta-button {
+  flex-shrink: 0;
+  background: #9b2020;
+  color: white;
+  text-decoration: none;
+  padding: 13px 20px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.organizacoes-cta-button:hover {
+  background: #db7777;
+}
 
 @media (max-width: 850px) {
-
   .organizacoes-grid {
     grid-template-columns: 1fr;
   }
 
+  .organizacoes-talentos-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .organizacoes-busca {
+    width: 100%;
+  }
+
+  .organizacoes-talentos-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-
-@media (max-width: 550px) {
-
+@media (max-width: 600px) {
   .organizacoes-page {
-    padding: 40px 20px;
+    padding: 35px 15px 60px;
   }
 
   .organizacoes-header h1 {
-    font-size: 28px;
+    font-size: 30px;
+  }
+
+  .organizacoes-talentos {
+    padding: 22px;
   }
 
   .organizacao-card {
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
+    align-items: flex-start;
   }
 
   .organizacao-logo-container {
-    width: 150px;
-    min-width: 150px;
-
-    height: 150px;
+    width: 85px;
+    height: 85px;
   }
 
-  .organizacao-jogos {
-    justify-content: center;
+  .organizacao-info h2 {
+    font-size: 20px;
   }
 
-  .btn-organizacao {
-    align-self: center;
+  .organizacao-descricao {
+    font-size: 12px;
   }
 
+  .organizacoes-talentos-header h2 {
+    font-size: 26px;
+  }
+
+  .organizacao-talento-card {
+    flex-direction: column;
+  }
+
+  .talento-card-dados {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .organizacoes-talentos-vazio {
+    align-items: flex-start;
+  }
+
+  .organizacoes-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
 }
