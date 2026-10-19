@@ -13,6 +13,7 @@ import {
   updateDoc
 } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
+import { analisarConteudo } from "../services/analiseConteudo";
 import "../styles/portfolio.css";
 
 function Portfolio() {
@@ -108,89 +109,112 @@ function Portfolio() {
     setEditandoId(null);
   };
 
-  const handleSalvar = async (e) => {
-    e.preventDefault();
 
-    if (!user) return;
+const handleSalvar = async (e) => {
+  e.preventDefault();
 
-    if (!form.titulo.trim()) {
-      setMessage("Digite um título para o material.");
+  if (!user) return;
+
+  if (!form.titulo.trim()) {
+    setMessage("Digite um título para o material.");
+    setMessageType("error");
+    return;
+  }
+
+  if (!form.jogo.trim()) {
+    setMessage("Digite o jogo relacionado ao material.");
+    setMessageType("error");
+    return;
+  }
+
+  try {
+    setSalvando(true);
+    setMessage("");
+
+    const dados = {
+      titulo: form.titulo.trim(),
+      jogo: form.jogo.trim(),
+      descricao: form.descricao.trim(),
+      videoUrl: form.videoUrl.trim(),
+      imagemUrl: form.imagemUrl.trim()
+    };
+
+    const resultado = await analisarConteudo(
+      JSON.stringify(dados),
+      "portfolio"
+    );
+
+    if (resultado.status !== "APROVADO") {
+      setMessage(
+        resultado.motivo ||
+          "O material precisa ser revisado antes de ser salvo."
+      );
       setMessageType("error");
       return;
     }
 
-    if (!form.jogo.trim()) {
-      setMessage("Digite o jogo relacionado ao material.");
-      setMessageType("error");
-      return;
+    const dadosParaSalvar = {
+      ...dados,
+      atualizadoEm: serverTimestamp()
+    };
+
+    if (editandoId) {
+      const materialRef = doc(
+        db,
+        "users",
+        user.uid,
+        "portfolio",
+        editandoId
+      );
+
+      await updateDoc(materialRef, dadosParaSalvar);
+
+      setMateriais((atual) =>
+        atual.map((material) =>
+          material.id === editandoId
+            ? {
+                ...material,
+                ...dados
+              }
+            : material
+        )
+      );
+
+      setMessage("Material atualizado com sucesso!");
+    } else {
+      const materialRef = await addDoc(
+        collection(db, "users", user.uid, "portfolio"),
+        {
+          ...dadosParaSalvar,
+          criadoEm: serverTimestamp()
+        }
+      );
+
+      setMateriais((atual) => [
+        {
+          id: materialRef.id,
+          ...dados
+        },
+        ...atual
+      ]);
+
+      setMessage("Material adicionado ao portfólio!");
     }
 
-    try {
-      setSalvando(true);
-      setMessage("");
+    setMessageType("success");
+    limparFormulario();
+  } catch (error) {
+    console.error(error);
+    setMessage(
+      error.message ||
+        "Não foi possível analisar ou salvar o material."
+    );
+    setMessageType("error");
+  } finally {
+    setSalvando(false);
+  }
+};
 
-      const dados = {
-        titulo: form.titulo.trim(),
-        jogo: form.jogo.trim(),
-        descricao: form.descricao.trim(),
-        videoUrl: form.videoUrl.trim(),
-        imagemUrl: form.imagemUrl.trim(),
-        atualizadoEm: serverTimestamp()
-      };
-
-      if (editandoId) {
-        const materialRef = doc(
-          db,
-          "users",
-          user.uid,
-          "portfolio",
-          editandoId
-        );
-
-        await updateDoc(materialRef, dados);
-
-        setMateriais((atual) =>
-          atual.map((material) =>
-            material.id === editandoId
-              ? {
-                  ...material,
-                  ...dados
-                }
-              : material
-          )
-        );
-
-        setMessage("Material atualizado com sucesso!");
-      } else {
-        const materialRef = await addDoc(
-          collection(db, "users", user.uid, "portfolio"),
-          {
-            ...dados,
-            criadoEm: serverTimestamp()
-          }
-        );
-
-        setMateriais((atual) => [
-          {
-            id: materialRef.id,
-            ...dados
-          },
-          ...atual
-        ]);
-
-        setMessage("Material adicionado ao portfólio!");
-      }
-
-      setMessageType("success");
-      limparFormulario();
-    } catch (error) {
-      console.error(error);
-      setMessage("Não foi possível salvar o material.");
-      setMessageType("error");
-    } finally {
-      setSalvando(false);
-    }
-  };
 
   const handleEditar = (material) => {
     setEditandoId(material.id);

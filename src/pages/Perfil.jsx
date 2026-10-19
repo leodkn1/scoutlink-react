@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
+import { analisarConteudo } from "../services/analiseConteudo";
 import "../styles/perfil.css";
 
 function Perfil() {
@@ -124,44 +125,68 @@ function Perfil() {
     }));
   };
 
-  const handleSalvar = async () => {
-    if (!user || !form) return;
+ 
+const handleSalvar = async () => {
+  if (!user || !form) return;
 
-    try {
-      setSaving(true);
-      setMessage("");
+  try {
+    setSaving(true);
+    setMessage("");
 
-      const perfilRef = doc(db, "users", user.uid);
+    const conteudoPublico = {
+      nome: form.nome.trim(),
+      nickname: form.nickname.trim(),
+      foto: form.foto.trim(),
+      jogoPrincipal: form.jogoPrincipal.trim(),
+      rank: form.rank.trim(),
+      cidade: form.cidade.trim(),
+      bio: form.bio.trim(),
+      funcao: form.funcao.trim(),
+      timesAnteriores: form.timesAnteriores,
+      conquistas: form.conquistas,
+      redesSociais: form.redesSociais,
+      estatisticas: form.estatisticas.trim(),
+      horasJogo: form.horasJogo.trim(),
+      disponibilidade: form.disponibilidade.trim()
+    };
 
-      await updateDoc(perfilRef, {
-        nome: form.nome.trim(),
-        nickname: form.nickname.trim(),
-        foto: form.foto.trim(),
-        jogoPrincipal: form.jogoPrincipal.trim(),
-        rank: form.rank.trim(),
-        cidade: form.cidade.trim(),
-        bio: form.bio.trim(),
-        funcao: form.funcao.trim(),
-        timesAnteriores: form.timesAnteriores,
-        conquistas: form.conquistas,
-        redesSociais: form.redesSociais,
-        estatisticas: form.estatisticas.trim(),
-        horasJogo: form.horasJogo.trim(),
-        disponibilidade: form.disponibilidade.trim()
-      });
+    const resultado = await analisarConteudo(
+      JSON.stringify(conteudoPublico),
+      "perfil"
+    );
 
-      setPerfil(form);
-      setEditando(false);
-      setMessage("Perfil atualizado com sucesso!");
-      setMessageType("success");
-    } catch (error) {
-      console.error(error);
-      setMessage("Não foi possível salvar as alterações.");
+    if (resultado.status !== "APROVADO") {
+      setMessage(
+        resultado.motivo ||
+          "O perfil precisa ser revisado antes de ser salvo."
+      );
       setMessageType("error");
-    } finally {
-      setSaving(false);
+      return;
     }
-  };
+
+    const perfilRef = doc(db, "users", user.uid);
+
+    await updateDoc(perfilRef, conteudoPublico);
+
+    setPerfil({
+      ...form,
+      ...conteudoPublico
+    });
+    setEditando(false);
+    setMessage("Perfil atualizado com sucesso!");
+    setMessageType("success");
+  } catch (error) {
+    console.error(error);
+    setMessage(
+      error.message ||
+        "Não foi possível analisar ou salvar as alterações."
+    );
+    setMessageType("error");
+  } finally {
+    setSaving(false);
+  }
+};
+
 
   const handleCancelar = () => {
     setForm(perfil);
